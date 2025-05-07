@@ -1,0 +1,26 @@
+{% extends 'menu/base.html' %}
+
+{% block content %}
+<h2>{{ category.name }}</h2>
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+    {% for dish in dishes %}
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                {% if dish.image %}
+                    <img src="{{ dish.image.url }}" class="card-img-top object-fit-cover" alt="{{ dish.title }}" style="height: 200px; object-fit: cover;">
+                {% else %}
+                    <div class="card-img-top bg-secondary text-white d-flex align-items-center justify-content-center" style="height: 200px;">
+                        Нет изображения
+                    </div>
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ dish.title }}</h5>
+                    <p class="card-text"><strong>Ресторан:</strong> {{ dish.restaurant }}</p>
+                    <p class="card-text"><h4>Цена:</h4> {{ dish.price }} руб.</p>
+                    <a href="{% url 'dish_detail' dish.id %}" class="btn btn-success">Подробнее</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
