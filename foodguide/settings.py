@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-(!+kcu6w=zkcpr!j#qq84uv%g284*4eg5nb%%3%u%@8kulqus-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['foodguide-d4us.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
