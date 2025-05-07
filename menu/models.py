@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
@@ -12,7 +13,7 @@ class Dish(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
     restaurant = models.CharField(max_length=200)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='dish_images/', blank=True, null=True)
+    image = CloudinaryField('image')
 
     def __str__(self):
         return self.title
